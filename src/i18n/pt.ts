@@ -74,13 +74,11 @@ export const pt: SiteContent = {
         title: 'Plataforma de dados em tempo real',
         description: 'Pipeline de streaming processando milhões de eventos por dia com Kafka e Spark.',
         tags: ['Kafka', 'Spark', 'AWS'],
-        url: '#',
       },
       {
         title: 'API de pagamentos',
         description: 'Serviço de alta disponibilidade com observabilidade e testes automatizados.',
         tags: ['Node.js', 'PostgreSQL', 'Docker'],
-        url: '#',
       },
       {
         title: 'Data warehouse analítico',

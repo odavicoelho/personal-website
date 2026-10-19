@@ -68,13 +68,11 @@ export const en: SiteContent = {
         title: 'Real-time data platform',
         description: 'Streaming pipeline processing millions of events per day with Kafka and Spark.',
         tags: ['Kafka', 'Spark', 'AWS'],
-        url: '#',
       },
       {
         title: 'Payments API',
         description: 'High-availability service with full observability and automated testing.',
         tags: ['Node.js', 'PostgreSQL', 'Docker'],
-        url: '#',
       },
       {
         title: 'Analytics data warehouse',
