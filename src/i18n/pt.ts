@@ -3,7 +3,7 @@ import type { SiteContent } from './types';
 // TODO: all content below is placeholder — replace with your own.
 export const pt: SiteContent = {
   meta: {
-    title: 'Seu Nome · Engenheiro de Software & Dados · Professor de Matemática e Física',
+    title: 'Davi Coelho · Engenheiro de Software & Dados · Professor de Matemática e Física',
     description:
       'Engenheiro de Software e de Dados construindo sistemas escaláveis e pipelines confiáveis. Aulas particulares de Matemática e Física.',
   },

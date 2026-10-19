@@ -3,7 +3,7 @@ import type { SiteContent } from './types';
 // TODO: all content below is placeholder — replace with your own.
 export const en: SiteContent = {
   meta: {
-    title: 'Your Name · Software & Data Engineer',
+    title: 'Davi Coelho · Software & Data Engineer',
     description:
       'Software and Data Engineer building scalable systems and reliable data pipelines. Based in Brazil, working remotely worldwide.',
   },
