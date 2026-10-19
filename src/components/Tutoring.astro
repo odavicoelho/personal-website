@@ -1,0 +1,78 @@
+---
+import Icon from './Icon.astro';
+import SectionHeader from './SectionHeader.astro';
+import type { Lang } from '../i18n/types';
+import { getContent } from '../i18n/utils';
+import { whatsappUrl } from '../config/site';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getContent(lang).tutoring;
+---
+
+{
+  t && (
+    <section id="tutoring" class="relative py-24 sm:py-32">
+      <div class="absolute inset-x-0 top-1/2 -z-10 h-96 -translate-y-1/2 bg-[radial-gradient(ellipse_at_center,rgb(139_92_246/0.12),transparent_70%)]" aria-hidden="true" />
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <SectionHeader kicker={t.kicker} title={t.title} />
+        <p data-reveal class="-mt-4 mb-10 max-w-2xl text-lg leading-relaxed text-fg/85">
+          {t.intro}
+        </p>
+
+        <div class="grid gap-4 md:grid-cols-2">
+          {t.subjects.map((s, i) => (
+            <div data-reveal style={`--delay: ${i * 80}ms`} class="glow-card p-6">
+              <div class="flex items-center gap-3">
+                <span class="grid size-11 place-items-center rounded-xl border border-accent/30 bg-accent/10 font-display text-xl text-accent">
+                  {i === 0 ? '∑' : 'λ'}
+                </span>
+                <h3 class="font-display text-xl font-semibold text-white">{s.name}</h3>
+              </div>
+              <ul class="mt-5 flex flex-wrap gap-2">
+                {s.topics.map((topic) => (
+                  <li class="chip">{topic}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-4 grid gap-4 md:grid-cols-2">
+          <div data-reveal class="glass p-6">
+            <h3 class="kicker">{t.levelsTitle}</h3>
+            <ul class="mt-4 space-y-2">
+              {t.levels.map((l) => (
+                <li class="flex items-center gap-3 text-fg/90">
+                  <span class="size-1.5 rounded-full bg-accent" />
+                  {l}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div data-reveal style="--delay: 80ms" class="glass p-6">
+            <h3 class="kicker">{t.formatTitle}</h3>
+            <ul class="mt-4 space-y-2">
+              {t.formats.map((f) => (
+                <li class="flex items-center gap-3 text-fg/90">
+                  <span class="size-1.5 rounded-full bg-accent" />
+                  {f}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div data-reveal class="mt-10">
+          <a href={whatsappUrl(t.whatsappMessage)} target="_blank" rel="noopener noreferrer" class="btn-primary w-full sm:w-auto">
+            <Icon name="whatsapp" class="size-5" />
+            {t.cta}
+          </a>
+        </div>
+      </div>
+    </section>
+  )
+}

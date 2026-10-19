@@ -1,0 +1,60 @@
+---
+import Icon from './Icon.astro';
+import SectionHeader from './SectionHeader.astro';
+import type { Lang } from '../i18n/types';
+import { getContent } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getContent(lang).projects;
+---
+
+<section id="projects" class="mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32">
+  <SectionHeader kicker={t.kicker} title={t.title} />
+
+  <div class="grid gap-4 md:grid-cols-3">
+    {
+      t.items.map((p, i) => (
+        <article data-reveal style={`--delay: ${i * 80}ms`} class="glow-card flex flex-col p-6">
+          <h3 class="font-display text-lg font-semibold text-white">{p.title}</h3>
+          <p class="mt-2 flex-1 leading-relaxed text-muted">{p.description}</p>
+          <ul class="mt-5 flex flex-wrap gap-2">
+            {p.tags.map((tag) => (
+              <li class="rounded-md bg-accent/10 px-2 py-0.5 font-mono text-xs text-accent-soft">{tag}</li>
+            ))}
+          </ul>
+          {p.url && (
+            <a
+              href={p.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-5 inline-flex min-h-11 items-center gap-1.5 self-start text-sm font-medium text-accent hover:text-accent-soft"
+            >
+              {t.linkLabel}
+              <Icon name="external" class="size-4" />
+            </a>
+          )}
+        </article>
+      ))
+    }
+  </div>
+
+  <h3 data-reveal class="mt-20 mb-8 font-display text-2xl font-semibold text-white">{t.experienceTitle}</h3>
+  <ol class="relative space-y-8 border-l border-line pl-6 sm:pl-8">
+    {
+      t.experience.map((job, i) => (
+        <li data-reveal style={`--delay: ${i * 80}ms`} class="relative">
+          <span class="absolute top-1.5 -left-[1.95rem] size-3 rounded-full border-2 border-accent bg-bg shadow-[0_0_12px_var(--color-accent)] sm:-left-[2.45rem]" />
+          <p class="font-mono text-xs tracking-wider text-accent uppercase">{job.period}</p>
+          <p class="mt-1 font-display text-lg font-semibold text-white">
+            {job.role} <span class="font-normal text-muted">· {job.company}</span>
+          </p>
+          <p class="mt-1 text-muted">{job.description}</p>
+        </li>
+      ))
+    }
+  </ol>
+</section>

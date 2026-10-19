@@ -1,0 +1,81 @@
+---
+import Icon from './Icon.astro';
+import type { Lang } from '../i18n/types';
+import { getContent } from '../i18n/utils';
+import { site, whatsappUrl } from '../config/site';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getContent(lang);
+---
+
+<section id="top" class="relative isolate flex min-h-[100svh] items-center overflow-hidden pt-24 pb-16">
+  <div class="bg-grid absolute inset-0 -z-10" aria-hidden="true"></div>
+  <div class="glow-orb absolute -top-40 left-1/2 -z-10 size-[36rem] -translate-x-1/2 rounded-full sm:size-[48rem]" aria-hidden="true"></div>
+
+  <div class="mx-auto w-full max-w-6xl px-4 sm:px-6">
+    <div class="max-w-3xl">
+      <p data-reveal class="mb-6 inline-flex items-center gap-2 rounded-full border border-line bg-white/[0.03] px-3 py-1.5 text-xs text-muted sm:text-sm">
+        <span class="pulse-dot size-2 rounded-full bg-green-400"></span>
+        {t.hero.eyebrow}
+      </p>
+
+      <p data-reveal style="--delay: 80ms" class="font-mono text-sm text-accent sm:text-base">
+        {t.hero.greeting}{' '}
+        <span class="text-white">{site.name}</span>
+      </p>
+
+      <h1 data-reveal style="--delay: 160ms" class="text-gradient mt-3 font-display text-4xl leading-[1.05] font-bold tracking-tight sm:text-6xl lg:text-7xl">
+        {t.hero.headline}
+      </h1>
+
+      <p data-reveal style="--delay: 240ms" class="mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+        {t.hero.subheadline}
+      </p>
+
+      <ul data-reveal style="--delay: 320ms" class="mt-6 flex flex-wrap gap-2">
+        {
+          t.pillars.map((p) => (
+            <li class="chip gap-2">
+              <Icon name={p.icon} class="size-4 text-accent" />
+              {p.title}
+            </li>
+          ))
+        }
+      </ul>
+
+      <div data-reveal style="--delay: 400ms" class="mt-10 flex flex-col gap-3 sm:flex-row">
+        <a href="#contact" class="btn-primary">
+          {t.hero.ctaPrimary}
+          <Icon name="arrow" class="size-4" />
+        </a>
+        <a href={whatsappUrl(t.contact.whatsappMessage)} target="_blank" rel="noopener noreferrer" class="btn-ghost">
+          <Icon name="whatsapp" class="size-5 text-[#25D366]" />
+          {t.hero.ctaWhatsapp}
+        </a>
+      </div>
+
+      <div data-reveal style="--delay: 480ms" class="mt-10 flex items-center gap-2">
+        <a href={site.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="grid size-11 place-items-center rounded-xl text-muted transition-colors hover:bg-white/5 hover:text-accent">
+          <Icon name="linkedin" />
+        </a>
+        <a href={site.x} target="_blank" rel="noopener noreferrer" aria-label="X" class="grid size-11 place-items-center rounded-xl text-muted transition-colors hover:bg-white/5 hover:text-accent">
+          <Icon name="x" />
+        </a>
+        {
+          site.github && (
+            <a href={site.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="grid size-11 place-items-center rounded-xl text-muted transition-colors hover:bg-white/5 hover:text-accent">
+              <Icon name="github" />
+            </a>
+          )
+        }
+        <a href={`mailto:${site.email}`} aria-label="Email" class="grid size-11 place-items-center rounded-xl text-muted transition-colors hover:bg-white/5 hover:text-accent">
+          <Icon name="mail" />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

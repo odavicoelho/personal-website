@@ -1,0 +1,34 @@
+---
+import SectionHeader from './SectionHeader.astro';
+import type { Lang } from '../i18n/types';
+import { getContent } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getContent(lang).skills;
+---
+
+<section id="skills" class="mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32">
+  <SectionHeader kicker={t.kicker} title={t.title} />
+
+  <div class="grid gap-4 sm:grid-cols-2">
+    {
+      t.groups.map((g, i) => (
+        <div data-reveal style={`--delay: ${i * 80}ms`} class="glow-card p-6">
+          <h3 class="font-mono text-sm text-accent">
+            <span class="text-muted">// </span>
+            {g.name}
+          </h3>
+          <ul class="mt-4 flex flex-wrap gap-2">
+            {g.items.map((item) => (
+              <li class="chip">{item}</li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </div>
+</section>

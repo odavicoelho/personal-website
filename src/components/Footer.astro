@@ -1,0 +1,50 @@
+---
+import Icon from './Icon.astro';
+import type { Lang } from '../i18n/types';
+import { getContent } from '../i18n/utils';
+import { site, whatsappUrl } from '../config/site';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getContent(lang);
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-line">
+  <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-4 py-8 text-sm text-muted sm:flex-row sm:px-6">
+    <p>© {year} {site.name}. {t.footer.rights}</p>
+    <p class="font-mono text-xs">{t.footer.built}</p>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp button (mobile, shown after the hero) -->
+<a
+  id="whatsapp-fab"
+  href={whatsappUrl(t.contact.whatsappMessage)}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="WhatsApp"
+  class="fixed right-4 bottom-4 z-40 grid size-14 place-items-center rounded-full bg-[#25D366] text-white shadow-[0_8px_30px_rgb(37_211_102/0.4)] md:hidden"
+>
+  <Icon name="whatsapp" class="size-7" />
+</a>
+
+<style>
+  #whatsapp-fab {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+    pointer-events: none;
+    transition:
+      opacity 0.3s,
+      transform 0.3s;
+    margin-bottom: env(safe-area-inset-bottom);
+  }
+  #whatsapp-fab:global(.is-visible) {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+</style>

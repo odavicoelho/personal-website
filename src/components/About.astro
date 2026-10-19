@@ -1,0 +1,54 @@
+---
+import { Image } from 'astro:assets';
+import SectionHeader from './SectionHeader.astro';
+import type { Lang } from '../i18n/types';
+import { getContent } from '../i18n/utils';
+// TODO: replace src/assets/photo.jpg with your own photo (square, ≥ 800px)
+import photo from '../assets/photo.jpg';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getContent(lang).about;
+---
+
+<section id="about" class="mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32">
+  <SectionHeader kicker={t.kicker} title={t.title} />
+
+  <div class="grid items-center gap-12 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] md:gap-16">
+    <div data-reveal class="relative mx-auto w-full max-w-xs md:max-w-sm">
+      <div class="absolute -inset-4 rounded-[2rem] bg-accent/25 blur-3xl" aria-hidden="true"></div>
+      <div class="relative rounded-[1.75rem] bg-gradient-to-br from-accent via-accent-strong/40 to-transparent p-px">
+        <Image
+          src={photo}
+          alt={t.photoAlt}
+          widths={[320, 480, 640, 800]}
+          sizes="(min-width: 768px) 384px, 320px"
+          class="aspect-square w-full rounded-[1.7rem] bg-bg-soft object-cover"
+        />
+      </div>
+    </div>
+
+    <div>
+      {
+        t.paragraphs.map((p, i) => (
+          <p data-reveal style={`--delay: ${i * 80}ms`} class="mb-5 text-lg leading-relaxed text-fg/85">
+            {p}
+          </p>
+        ))
+      }
+      <dl data-reveal style="--delay: 200ms" class="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3">
+        {
+          t.facts.map((f) => (
+            <div class="glass p-4">
+              <dt class="font-mono text-xs tracking-wider text-muted uppercase">{f.label}</dt>
+              <dd class="mt-1 font-display font-semibold text-white">{f.value}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </div>
+</section>

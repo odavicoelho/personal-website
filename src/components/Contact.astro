@@ -1,0 +1,72 @@
+---
+import Icon, { type IconName } from './Icon.astro';
+import SectionHeader from './SectionHeader.astro';
+import type { Lang } from '../i18n/types';
+import { getContent } from '../i18n/utils';
+import { site, whatsappUrl } from '../config/site';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getContent(lang).contact;
+
+const handle = (url: string) => url.replace(/\/$/, '').split('/').pop() ?? '';
+
+const channels: { icon: IconName; label: string; value: string; href: string; external: boolean; color: string }[] = [
+  {
+    icon: 'whatsapp',
+    label: 'WhatsApp',
+    value: `+${site.whatsapp}`,
+    href: whatsappUrl(t.whatsappMessage),
+    external: true,
+    color: 'text-[#25D366]',
+  },
+  { icon: 'mail', label: 'Email', value: site.email, href: `mailto:${site.email}`, external: false, color: 'text-accent' },
+  { icon: 'linkedin', label: 'LinkedIn', value: `in/${handle(site.linkedin)}`, href: site.linkedin, external: true, color: 'text-[#0A66C2]' },
+  { icon: 'x', label: 'X', value: `@${handle(site.x)}`, href: site.x, external: true, color: 'text-white' },
+];
+---
+
+<section id="contact" class="relative overflow-hidden py-24 sm:py-32">
+  <div class="glow-orb absolute -bottom-64 left-1/2 -z-10 size-[40rem] -translate-x-1/2 rounded-full opacity-60" aria-hidden="true"></div>
+  <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <SectionHeader kicker={t.kicker} title={t.title} />
+    <p data-reveal class="-mt-4 mb-10 max-w-xl text-lg text-fg/85">{t.intro}</p>
+
+    <ul class="grid max-w-4xl gap-4 sm:grid-cols-2">
+      {
+        channels.map((c, i) => (
+          <li data-reveal style={`--delay: ${i * 70}ms`}>
+            <a
+              href={c.href}
+              {...(c.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+              class="glow-card group flex min-h-20 items-center gap-4 p-5"
+            >
+              <span class:list={['grid size-12 shrink-0 place-items-center rounded-xl border border-line bg-white/[0.04]', c.color]}>
+                <Icon name={c.icon} class="size-6" />
+              </span>
+              <span class="min-w-0 flex-1">
+                <span class="block font-display font-semibold text-white">{c.label}</span>
+                <span class="block truncate text-sm text-muted">{c.value}</span>
+              </span>
+              <Icon name="arrow" class="size-5 shrink-0 text-muted transition-transform group-hover:translate-x-1 group-hover:text-accent" />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <button
+      type="button"
+      data-copy={site.email}
+      data-copied={t.copied}
+      class="mt-6 inline-flex min-h-11 items-center gap-2 rounded-lg px-2 text-sm text-muted transition-colors hover:text-accent"
+    >
+      <Icon name="copy" class="size-4" />
+      <span data-copy-label>{t.copyEmail}</span>
+      <span class="font-mono">· {site.email}</span>
+    </button>
+  </div>
+</section>
