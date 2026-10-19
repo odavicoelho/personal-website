@@ -4,8 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  // TODO: replace with your real domain
-  site: 'https://example.com',
+  site: 'https://personal-website-beige-one-30.vercel.app',
   i18n: {
     defaultLocale: 'pt',
     locales: ['pt', 'en'],
