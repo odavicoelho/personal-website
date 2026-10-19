@@ -92,20 +92,17 @@ export const pt: SiteContent = {
     experience: [
       {
         period: '2023 — hoje',
-        role: 'Engenheiro de Dados Sênior',
-        company: 'Empresa X',
+        role: 'Engenheiro de Dados',
         description: 'Liderança da plataforma de dados e dos pipelines de ingestão.',
       },
       {
         period: '2020 — 2023',
         role: 'Engenheiro de Software',
-        company: 'Empresa Y',
         description: 'Desenvolvimento de APIs e serviços back-end em produção.',
       },
       {
         period: '2018 — hoje',
         role: 'Professor particular',
-        company: 'Autônomo',
         description: 'Aulas de Matemática e Física para ensino médio, vestibular e graduação.',
       },
     ],

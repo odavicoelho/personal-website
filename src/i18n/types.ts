@@ -18,7 +18,7 @@ export interface Project {
 export interface Job {
   period: string;
   role: string;
-  company: string;
+  company?: string;
   description: string;
 }
 

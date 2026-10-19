@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import SectionHeader from './SectionHeader.astro';
 import type { Lang } from '../i18n/types';
 import { getContent } from '../i18n/utils';
-// TODO: replace src/assets/photo.jpg with your own photo (square, ≥ 800px)
+// Portrait photo (3:4 or 4:5); displayed in a 4:5 frame
 import photo from '../assets/photo.jpg';
 
 interface Props {
@@ -24,9 +24,9 @@ const t = getContent(lang).about;
         <Image
           src={photo}
           alt={t.photoAlt}
-          widths={[320, 480, 640, 800]}
+          widths={[320, 480]}
           sizes="(min-width: 768px) 384px, 320px"
-          class="aspect-square w-full rounded-[1.7rem] bg-bg-soft object-cover"
+          class="aspect-[4/5] w-full rounded-[1.7rem] bg-bg-soft object-cover object-[50%_15%]"
         />
       </div>
     </div>

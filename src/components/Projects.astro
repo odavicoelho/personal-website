@@ -50,7 +50,8 @@ const t = getContent(lang).projects;
           <span class="absolute top-1.5 -left-[1.95rem] size-3 rounded-full border-2 border-accent bg-bg shadow-[0_0_12px_var(--color-accent)] sm:-left-[2.45rem]" />
           <p class="font-mono text-xs tracking-wider text-accent uppercase">{job.period}</p>
           <p class="mt-1 font-display text-lg font-semibold text-white">
-            {job.role} <span class="font-normal text-muted">· {job.company}</span>
+            {job.role}
+            {job.company && <span class="font-normal text-muted">· {job.company}</span>}
           </p>
           <p class="mt-1 text-muted">{job.description}</p>
         </li>

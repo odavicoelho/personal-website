@@ -86,14 +86,12 @@ export const en: SiteContent = {
     experience: [
       {
         period: '2023 — now',
-        role: 'Senior Data Engineer',
-        company: 'Company X',
+        role: 'Data Engineer',
         description: 'Leading the data platform and ingestion pipelines.',
       },
       {
         period: '2020 — 2023',
         role: 'Software Engineer',
-        company: 'Company Y',
         description: 'Built APIs and back-end services running in production.',
       },
     ],
