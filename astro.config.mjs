@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://personal-website-beige-one-30.vercel.app',
+  site: 'https://davicoelho-comercial.vercel.app',
   i18n: {
     defaultLocale: 'pt',
     locales: ['pt', 'en'],
