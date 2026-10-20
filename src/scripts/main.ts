@@ -44,12 +44,10 @@ const onScroll = () => nav?.classList.toggle('is-scrolled', window.scrollY > 10)
 window.addEventListener('scroll', onScroll, { passive: true });
 onScroll();
 
-// Language switch keeps the current section anchor
+// Language switch between the two engineering pages keeps the current section
 document.querySelectorAll<HTMLAnchorElement>('[data-lang-switch]').forEach((link) => {
   link.addEventListener('click', () => {
-    const hash = window.location.hash;
-    // tutoring only exists in PT; fall back to the top
-    if (hash && hash !== '#tutoring') link.href = link.pathname + hash;
+    if (window.location.hash) link.href = link.pathname + window.location.hash;
   });
 });
 

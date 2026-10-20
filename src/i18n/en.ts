@@ -1,11 +1,10 @@
 import type { SiteContent } from './types';
 
-// TODO: all content below is placeholder — replace with your own.
 export const en: SiteContent = {
   meta: {
     title: 'Davi Coelho · Software & Data Engineer',
     description:
-      'Software and Data Engineer building scalable systems and reliable data pipelines. Based in Brazil, working remotely worldwide.',
+      'Self-employed Software and Data Engineer. Python back-ends, automation, data pipelines and AI integrations. Based in Brazil, working remotely worldwide.',
   },
   nav: [
     { label: 'About', id: 'about' },
@@ -15,90 +14,90 @@ export const en: SiteContent = {
   ],
   langSwitch: { label: 'PT', aria: 'Ver em português' },
   hero: {
-    eyebrow: 'Open to new opportunities',
+    eyebrow: 'Self-employed · Available for projects',
     greeting: "Hi, I'm",
-    headline: 'I build software and data systems that scale.',
+    headline: 'I engineer software and data systems that just work.',
     subheadline:
-      'Software and Data Engineer turning complex problems into simple, reliable systems. Based in Brazil, working remotely with teams worldwide.',
+      'Software and Data Engineer. I design and build back-ends, automations, data pipelines and AI integrations — clean architecture, reliable in production. Based in Brazil, working remotely with clients worldwide.',
     ctaPrimary: 'Get in touch',
+    ctaHref: '#contact',
     ctaWhatsapp: 'WhatsApp',
   },
   pillars: [
     {
       icon: 'code',
       title: 'Software Engineering',
-      description: 'Robust, well-tested APIs, back-ends and web applications built to scale.',
+      description: 'APIs, back-ends, automations and the web applications around them — tested, documented, built to last.',
     },
     {
       icon: 'data',
       title: 'Data Engineering',
-      description: 'Pipelines, data warehouses and modeling that turn data into decisions.',
+      description: 'Pipelines, databases and AI integrations that turn scattered data into reliable decisions.',
     },
   ],
   about: {
     title: 'About me',
     kicker: '01 · About',
     paragraphs: [
-      "I'm a software and data engineer with experience building digital products end to end — from data modeling to applications running in production.",
-      'I enjoy hard problems, clean code and explaining complex ideas simply. I work remotely and communicate fluently in English and Portuguese.',
+      "I'm a self-employed software and data engineer. I design systems end to end — from the data model to the service running in production — with a focus on clean architecture and on things that keep working after handoff.",
+      "My background is in mathematics and physics, which I've taught since 2018. It shapes how I work: break hard problems down, reason from first principles, and explain the result clearly to the people who rely on it.",
     ],
     photoAlt: 'Profile photo',
     facts: [
-      { label: 'Experience', value: '5+ years' },
+      { label: 'Focus', value: 'Python · Data · AI' },
       { label: 'Location', value: 'Brazil · Remote' },
-      { label: 'Languages', value: 'Portuguese, English' },
+      { label: 'Languages', value: 'English, Portuguese' },
     ],
   },
   skills: {
     title: 'Stack & tools',
     kicker: '02 · Skills',
     groups: [
-      { name: 'Languages', items: ['Python', 'TypeScript', 'SQL', 'Go', 'Java'] },
-      { name: 'Back-end & Web', items: ['Node.js', 'FastAPI', 'React', 'PostgreSQL', 'REST', 'GraphQL'] },
-      { name: 'Data', items: ['Apache Spark', 'Airflow', 'dbt', 'Kafka', 'BigQuery', 'Snowflake'] },
-      { name: 'Cloud & DevOps', items: ['AWS', 'GCP', 'Docker', 'Kubernetes', 'Terraform', 'CI/CD'] },
+      { name: 'Languages', items: ['Python', 'SQL', 'TypeScript', 'JavaScript', 'C'] },
+      { name: 'Back-end & Web', items: ['FastAPI', 'Node.js', 'REST', 'React', 'Astro'] },
+      { name: 'Data & AI', items: ['PostgreSQL', 'pandas', 'DuckDB', 'ETL pipelines', 'LLM APIs', 'RAG'] },
+      { name: 'Tooling', items: ['Git', 'Docker', 'Linux', 'CI/CD', 'Vercel'] },
     ],
   },
   projects: {
-    title: 'Projects & experience',
+    title: 'Projects',
     kicker: '03 · Work',
     linkLabel: 'View project',
-    items: [
-      {
-        title: 'Real-time data platform',
-        description: 'Streaming pipeline processing millions of events per day with Kafka and Spark.',
-        tags: ['Kafka', 'Spark', 'AWS'],
-      },
-      {
-        title: 'Payments API',
-        description: 'High-availability service with full observability and automated testing.',
-        tags: ['Node.js', 'PostgreSQL', 'Docker'],
-      },
-      {
-        title: 'Analytics data warehouse',
-        description: 'Dimensional modeling with dbt that cut reporting time from hours to minutes.',
-        tags: ['dbt', 'BigQuery', 'Airflow'],
-      },
-    ],
-    experienceTitle: 'Experience',
+    items: [],
+    building: {
+      title: 'Currently building',
+      text: 'New open-source projects in data engineering, automation and AI are in progress. Each one ships with its source code and an architecture write-up — they will appear here as they are released.',
+      cta: 'Follow on GitHub',
+    },
+    experienceTitle: 'Background',
     experience: [
       {
-        period: '2023 — now',
-        role: 'Data Engineer',
-        description: 'Leading the data platform and ingestion pipelines.',
+        period: 'Now',
+        role: 'Software & Data Engineer',
+        company: 'Self-employed',
+        description: 'Back-ends, automation, data pipelines and AI integrations for clients, delivered remotely.',
       },
       {
-        period: '2020 — 2023',
-        role: 'Software Engineer',
-        description: 'Built APIs and back-end services running in production.',
+        period: '2018 — now',
+        role: 'Math & Physics Tutor',
+        company: 'Self-employed',
+        description: 'Private tutoring for middle and high school students — explaining complex ideas simply, every week.',
+      },
+      {
+        period: 'Certification',
+        role: 'Full-Stack Web Developer',
+        company: 'SENAI',
+        description: 'Full-stack web development: back-end, databases and front-end.',
       },
     ],
   },
   tutoring: null,
+  plans: null,
+  engineering: null,
   contact: {
     title: "Let's talk",
     kicker: '04 · Contact',
-    intro: 'Projects, roles or collaborations — the fastest way is to reach me directly.',
+    intro: 'Projects, contracts or collaborations — the fastest way is to reach me directly.',
     whatsappMessage: "Hi! I found your website and I'd like to get in touch.",
     copyEmail: 'Copy email',
     copied: 'Copied!',

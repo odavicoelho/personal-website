@@ -1,16 +1,16 @@
 ---
 import Icon, { type IconName } from './Icon.astro';
 import SectionHeader from './SectionHeader.astro';
-import type { Lang } from '../i18n/types';
+import type { PageId } from '../i18n/types';
 import { getContent } from '../i18n/utils';
 import { site, whatsappUrl } from '../config/site';
 
 interface Props {
-  lang: Lang;
+  page: PageId;
 }
 
-const { lang } = Astro.props;
-const t = getContent(lang).contact;
+const { page } = Astro.props;
+const t = getContent(page).contact;
 
 const handle = (url: string) => url.replace(/\/$/, '').split('/').pop() ?? '';
 

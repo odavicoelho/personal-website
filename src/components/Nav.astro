@@ -1,17 +1,18 @@
 ---
 import Icon from './Icon.astro';
-import type { Lang } from '../i18n/types';
-import { getContent, otherLang, pathFor } from '../i18n/utils';
+import type { PageId } from '../i18n/types';
+import { getContent, htmlLang, isEngineering, pathFor, switchTarget } from '../i18n/utils';
 import { site } from '../config/site';
 
 interface Props {
-  lang: Lang;
+  page: PageId;
 }
 
-const { lang } = Astro.props;
-const t = getContent(lang);
-const home = pathFor(lang);
-const switchHref = pathFor(otherLang(lang));
+const { page } = Astro.props;
+const t = getContent(page);
+const home = pathFor(page);
+const target = switchTarget(page);
+const switchHref = pathFor(target);
 ---
 
 <header id="site-nav" class="fixed inset-x-0 top-0 z-50 transition-colors duration-300">
@@ -34,17 +35,40 @@ const switchHref = pathFor(otherLang(lang));
     </div>
 
     <div class="flex items-center gap-2">
+      {
+        t.tutoringLink && (
+          <a
+            href={pathFor('aulas')}
+            aria-label={t.tutoringLink.aria}
+            class="inline-flex h-10 items-center gap-1.5 rounded-lg border border-line bg-white/[0.03] px-3 font-mono text-xs text-fg transition-colors hover:border-accent/50 hover:text-accent"
+          >
+            <Icon name="teach" class="size-4 text-accent" />
+            <span>{t.tutoringLink.label}</span>
+          </a>
+        )
+      }
       <a
         href={switchHref}
-        data-lang-switch
-        hreflang={otherLang(lang) === 'pt' ? 'pt-BR' : 'en'}
+        data-lang-switch={isEngineering(page) ? '' : undefined}
+        hreflang={htmlLang(target)}
         aria-label={t.langSwitch.aria}
         class="inline-flex h-10 items-center gap-1.5 rounded-lg border border-line bg-white/[0.03] px-3 font-mono text-xs text-fg transition-colors hover:border-accent/50 hover:text-accent"
       >
-        <Icon name="globe" class="size-4" />
-        <span class="text-accent">{lang.toUpperCase()}</span>
-        <span class="text-muted">/</span>
-        <span>{t.langSwitch.label}</span>
+        {
+          isEngineering(page) ? (
+            <>
+              <Icon name="globe" class="size-4" />
+              <span class="text-accent">{page.toUpperCase()}</span>
+              <span class="text-muted">/</span>
+              <span>{t.langSwitch.label}</span>
+            </>
+          ) : (
+            <>
+              <Icon name="code" class="size-4 text-accent" />
+              <span>{t.langSwitch.label}</span>
+            </>
+          )
+        }
       </a>
       <button
         id="menu-toggle"

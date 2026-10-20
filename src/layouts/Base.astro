@@ -1,20 +1,26 @@
 ---
 import '../styles/global.css';
-import type { Lang } from '../i18n/types';
-import { getContent, htmlLang, pathFor } from '../i18n/utils';
+import type { PageId } from '../i18n/types';
+import { getContent, htmlLang, isEngineering, pathFor } from '../i18n/utils';
 import { site } from '../config/site';
 
 interface Props {
-  lang: Lang;
+  page: PageId;
 }
 
-const { lang } = Astro.props;
-const t = getContent(lang);
+const { page } = Astro.props;
+const t = getContent(page);
 
-const canonical = new URL(pathFor(lang), Astro.site);
-const ptUrl = new URL(pathFor('pt'), Astro.site);
-const enUrl = new URL(pathFor('en'), Astro.site);
-const ogImage = new URL(`/og-${lang}.png`, Astro.site);
+const canonical = new URL(pathFor(page), Astro.site);
+const ogImage = new URL(`/og-${page}.png`, Astro.site);
+// the two engineering pages are translations of each other
+const alternates = isEngineering(page)
+  ? [
+      { hreflang: 'en', href: new URL(pathFor('en'), Astro.site) },
+      { hreflang: 'pt-BR', href: new URL(pathFor('pt'), Astro.site) },
+      { hreflang: 'x-default', href: new URL(pathFor('en'), Astro.site) },
+    ]
+  : [];
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -29,7 +35,7 @@ const jsonLd = {
 ---
 
 <!doctype html>
-<html lang={htmlLang(lang)}>
+<html lang={htmlLang(page)}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -37,9 +43,7 @@ const jsonLd = {
     <title>{t.meta.title}</title>
     <meta name="description" content={t.meta.description} />
     <link rel="canonical" href={canonical} />
-    <link rel="alternate" hreflang="pt-BR" href={ptUrl} />
-    <link rel="alternate" hreflang="en" href={enUrl} />
-    <link rel="alternate" hreflang="x-default" href={ptUrl} />
+    {alternates.map((a) => <link rel="alternate" hreflang={a.hreflang} href={a.href} />)}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
@@ -48,7 +52,7 @@ const jsonLd = {
     <meta property="og:description" content={t.meta.description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:locale" content={lang === 'pt' ? 'pt_BR' : 'en_US'} />
+    <meta property="og:locale" content={page === 'en' ? 'en_US' : 'pt_BR'} />
     <meta name="twitter:card" content="summary_large_image" />
 
     <script is:inline>

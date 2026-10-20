@@ -1,0 +1,90 @@
+---
+import Icon from './Icon.astro';
+import SectionHeader from './SectionHeader.astro';
+import type { PageId } from '../i18n/types';
+import { getContent } from '../i18n/utils';
+import { whatsappUrl } from '../config/site';
+
+interface Props {
+  page: PageId;
+}
+
+const { page } = Astro.props;
+const t = getContent(page).plans;
+---
+
+{
+  t && (
+    <section id="plans" class="mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32">
+      <SectionHeader kicker={t.kicker} title={t.title} />
+      <p data-reveal class="-mt-4 mb-10 max-w-2xl text-lg leading-relaxed text-fg/85">
+        {t.intro}
+      </p>
+
+      <div class="grid items-stretch gap-4 md:grid-cols-3">
+        {t.items.map((plan, i) => (
+          <article
+            data-reveal
+            style={`--delay: ${i * 80}ms`}
+            class:list={[
+              'glow-card flex flex-col p-6 sm:p-7',
+              plan.highlight && 'border-accent/60 bg-accent/[0.07] shadow-[0_0_40px_rgb(167_139_250/0.18)] md:-my-3 md:py-10',
+            ]}
+          >
+            <div class="flex items-center justify-between gap-3">
+              <h3 class="font-display text-xl font-semibold text-white">{plan.name}</h3>
+              {plan.badge && (
+                <span
+                  class:list={[
+                    'rounded-full px-2.5 py-1 font-mono text-[0.7rem] tracking-wider uppercase',
+                    plan.highlight ? 'bg-accent text-bg' : 'border border-line text-muted',
+                  ]}
+                >
+                  {plan.badge}
+                </span>
+              )}
+            </div>
+            <p class="mt-2 text-muted">{plan.tagline}</p>
+
+            <p class="mt-6 flex items-baseline gap-1">
+              <span class="font-display text-4xl font-bold tracking-tight text-white">{plan.price}</span>
+              <span class="text-muted">{t.perMonth}</span>
+            </p>
+            <p class="mt-1 font-mono text-xs text-accent-soft">{plan.perHour}</p>
+
+            <ul class="mt-6 flex-1 space-y-3">
+              {plan.features.map((f) => (
+                <li class="flex gap-3 text-fg/90">
+                  <span class="mt-2.5 size-1.5 shrink-0 rounded-full bg-accent" />
+                  {f}
+                </li>
+              ))}
+            </ul>
+
+            <a
+              href={whatsappUrl(t.whatsappMessage.replace('{plan}', plan.name))}
+              target="_blank"
+              rel="noopener noreferrer"
+              class:list={['mt-8 w-full', plan.highlight ? 'btn-primary' : 'btn-ghost']}
+            >
+              <Icon name="whatsapp" class="size-5" />
+              {t.cta}
+            </a>
+          </article>
+        ))}
+      </div>
+
+      <div data-reveal class="glass mt-8 p-6">
+        <h3 class="kicker">{t.extrasTitle}</h3>
+        <ul class="mt-4 grid gap-x-8 gap-y-2 sm:grid-cols-2">
+          {t.extras.map((e) => (
+            <li class="flex gap-3 text-fg/90">
+              <span class="mt-2.5 size-1.5 shrink-0 rounded-full bg-accent" />
+              {e}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )
+}

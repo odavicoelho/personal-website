@@ -2,9 +2,9 @@
 
 # Davi Coelho — Personal Website
 
-**Software Engineer · Data Engineer · Math & Physics Tutor**
+**Software & Data Engineer · Math & Physics Tutor**
 
-A fast, bilingual (🇧🇷 PT / 🇺🇸 EN) one-page personal branding site with a clean, futuristic look.
+Three fast one-page sites in one project, with a clean, futuristic look: an engineering portfolio (English and Portuguese) and a Portuguese tutoring page.
 
 [**davicoelho-comercial.vercel.app**](https://davicoelho-comercial.vercel.app)
 
@@ -19,7 +19,7 @@ A fast, bilingual (🇧🇷 PT / 🇺🇸 EN) one-page personal branding site wi
 
 ## ✨ Features
 
-- **Bilingual** — Portuguese at `/`, English at `/en/`, with a language switch that keeps you on the same section. Proper `hreflang` tags so search engines index both versions.
+- **Two audiences, three pages** — engineering portfolio in English at `/` and in Portuguese at `/engenharia/` (EN/PT switch between them), and the tutoring page (with plans and prices) at `/aulas/`. Every engineering link on the tutoring page goes to `/engenharia/`, so Brazilian visitors stay in Portuguese. The old `/en/` URL redirects to `/`.
 - **Mobile-first** — designed for phones first: full-screen menu, large tap targets and a floating WhatsApp button.
 - **Direct contact, no forms** — one-tap WhatsApp (with a pre-filled message in the visitor's language), email (with copy-to-clipboard), LinkedIn and X.
 - **Futuristic, clean design** — dark theme, violet neon accent, subtle grid and glow, glassmorphism cards.
@@ -33,14 +33,26 @@ A fast, bilingual (🇧🇷 PT / 🇺🇸 EN) one-page personal branding site wi
 
 ## 🧭 Sections
 
+**`/` (English) and `/engenharia/` (Portuguese) — engineering**
+
 | Section | Content |
 | --- | --- |
-| **Hero** | Introduction, the three pillars and quick contact buttons |
-| **Sobre / About** | Photo, bio and quick facts |
-| **Skills** | Languages, back-end, data and cloud tooling |
-| **Projetos / Projects** | Selected projects and an experience timeline |
-| **Aulas** | Math & Physics tutoring — Portuguese version only |
-| **Contato / Contact** | WhatsApp, email, LinkedIn and X |
+| **Hero** | Introduction, pillars and quick contact buttons |
+| **About** | Photo, bio and quick facts |
+| **Skills** | Languages, back-end, data & AI, tooling |
+| **Projects** | Project cards (or a "currently building" panel while empty) and a background timeline |
+| **Contact** | WhatsApp, email, LinkedIn and X |
+
+**`/aulas/` — Portuguese, tutoring**
+
+| Section | Content |
+| --- | --- |
+| **Hero** | Tutoring pitch and quick contact buttons |
+| **Aulas** | Subjects, levels and format |
+| **Planos** | Three monthly plans with prices, plus the small print |
+| **Sobre** | Photo, bio and quick facts |
+| **Engenharia** | Short note linking to `/engenharia/` |
+| **Contato** | WhatsApp, email, LinkedIn and X |
 
 ## 🛠️ Tech stack
 
@@ -67,15 +79,17 @@ npm run preview   # serve the production build locally
 src/
 ├── config/site.ts        # name, email, WhatsApp and social links
 ├── i18n/
-│   ├── pt.ts             # Portuguese content
-│   ├── en.ts             # English content
+│   ├── en.ts             # engineering page, English
+│   ├── pt.ts             # engineering page, Portuguese
+│   ├── aulas.ts          # tutoring page, Portuguese
 │   ├── types.ts          # SiteContent type shared by both languages
 │   └── utils.ts          # language helpers
 ├── components/           # one component per section + Nav, Footer, Icon
 ├── layouts/Base.astro    # <head>, SEO meta tags, JSON-LD
 ├── pages/
-│   ├── index.astro       # PT  →  /
-│   └── en/index.astro    # EN  →  /en/
+│   ├── index.astro            # engineering EN  →  /
+│   ├── engenharia/index.astro # engineering PT  →  /engenharia/
+│   └── aulas/index.astro      # tutoring PT     →  /aulas/
 ├── scripts/main.ts       # scroll reveal, mobile menu, copy email
 ├── styles/global.css     # theme tokens and shared styles
 └── assets/photo.jpg      # profile photo
@@ -89,13 +103,14 @@ All text lives in data files — components never contain hard-coded copy.
 | What | Where |
 | --- | --- |
 | Name, email, WhatsApp, LinkedIn, X, GitHub | `src/config/site.ts` |
-| Portuguese texts (bio, skills, projects, aulas) | `src/i18n/pt.ts` |
-| English texts | `src/i18n/en.ts` — `tutoring: null` hides the tutoring section |
+| Engineering texts | `src/i18n/en.ts` and `src/i18n/pt.ts` — keep both in sync |
+| Tutoring texts (aulas, planos, bio) | `src/i18n/aulas.ts` |
+| Hide a section | set it to `null` (`skills`, `projects`, `tutoring`, `plans`, `engineering`) |
 | Profile photo | `src/assets/photo.jpg` (portrait, shown in a 4:5 frame) |
-| Link preview images | `public/og-pt.png`, `public/og-en.png` (1200×630) |
+| Link preview images | `public/og-en.png`, `public/og-pt.png`, `public/og-aulas.png` (1200×630) |
 | Site URL | `site` in `astro.config.mjs` |
 
-Optional fields: add `url` to a project to show a link on its card, and `company` to an experience entry to show it next to the role.
+Projects: while `items` is empty the "currently building" panel is shown. Optional fields: add `url` to a project to show a link on its card, and `company` to an experience entry to show it next to the role.
 
 ## 🌐 Deployment
 

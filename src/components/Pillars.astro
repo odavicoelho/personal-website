@@ -1,14 +1,14 @@
 ---
 import Icon from './Icon.astro';
-import type { Lang } from '../i18n/types';
+import type { PageId } from '../i18n/types';
 import { getContent } from '../i18n/utils';
 
 interface Props {
-  lang: Lang;
+  page: PageId;
 }
 
-const { lang } = Astro.props;
-const t = getContent(lang);
+const { page } = Astro.props;
+const t = getContent(page);
 const cols = t.pillars.length === 3 ? 'md:grid-cols-3' : 'md:grid-cols-2';
 ---
 

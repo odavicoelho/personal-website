@@ -1,16 +1,18 @@
 ---
 import SectionHeader from './SectionHeader.astro';
-import type { Lang } from '../i18n/types';
+import type { PageId } from '../i18n/types';
 import { getContent } from '../i18n/utils';
 
 interface Props {
-  lang: Lang;
+  page: PageId;
 }
 
-const { lang } = Astro.props;
-const t = getContent(lang).skills;
+const { page } = Astro.props;
+const t = getContent(page).skills;
 ---
 
+{
+  t && (
 <section id="skills" class="mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32">
   <SectionHeader kicker={t.kicker} title={t.title} />
 
@@ -32,3 +34,5 @@ const t = getContent(lang).skills;
     }
   </div>
 </section>
+  )
+}

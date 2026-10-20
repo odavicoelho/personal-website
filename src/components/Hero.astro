@@ -1,15 +1,15 @@
 ---
 import Icon from './Icon.astro';
-import type { Lang } from '../i18n/types';
+import type { PageId } from '../i18n/types';
 import { getContent } from '../i18n/utils';
 import { site, whatsappUrl } from '../config/site';
 
 interface Props {
-  lang: Lang;
+  page: PageId;
 }
 
-const { lang } = Astro.props;
-const t = getContent(lang);
+const { page } = Astro.props;
+const t = getContent(page);
 ---
 
 <section id="top" class="relative isolate flex min-h-[100svh] items-center overflow-hidden pt-24 pb-16">
@@ -48,7 +48,7 @@ const t = getContent(lang);
       </ul>
 
       <div data-reveal style="--delay: 400ms" class="mt-10 flex flex-col gap-3 sm:flex-row">
-        <a href="#contact" class="btn-primary">
+        <a href={t.hero.ctaHref} class="btn-primary">
           {t.hero.ctaPrimary}
           <Icon name="arrow" class="size-4" />
         </a>

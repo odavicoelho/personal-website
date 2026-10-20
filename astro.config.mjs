@@ -3,17 +3,13 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
+// Two separate pages, not translations of each other:
+// /       → English, software & data engineering
+// /aulas/ → Portuguese, math & physics tutoring
 export default defineConfig({
   site: 'https://davicoelho-comercial.vercel.app',
-  i18n: {
-    defaultLocale: 'pt',
-    locales: ['pt', 'en'],
-    routing: { prefixDefaultLocale: false },
-  },
-  integrations: [
-    sitemap({
-      i18n: { defaultLocale: 'pt', locales: { pt: 'pt-BR', en: 'en' } },
-    }),
-  ],
+  // old English URL
+  redirects: { '/en': '/' },
+  integrations: [sitemap({ filter: (page) => !page.includes('/en/') })],
   vite: { plugins: [tailwindcss()] },
 });
