@@ -20,6 +20,8 @@ export interface Project {
   value: string[];
   tags: string[];
   liveUrl?: string;
+  // overrides labels.live for this project's button
+  liveLabel?: string;
   repoUrl?: string;
 }
 

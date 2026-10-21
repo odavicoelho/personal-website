@@ -55,7 +55,7 @@ export const en: SiteContent = {
     groups: [
       { name: 'Languages', items: ['Python', 'SQL', 'TypeScript', 'JavaScript', 'C'] },
       { name: 'Back-end & Web', items: ['FastAPI', 'Node.js', 'REST', 'React', 'Astro'] },
-      { name: 'Data & AI', items: ['PostgreSQL', 'pandas', 'DuckDB', 'ETL pipelines', 'LLM APIs', 'RAG'] },
+      { name: 'Data & AI', items: ['PostgreSQL', 'DuckDB', 'dbt', 'pandas', 'ETL pipelines', 'LLM APIs', 'RAG'] },
       { name: 'Tooling', items: ['Git', 'Docker', 'Linux', 'CI/CD', 'Vercel'] },
     ],
   },
@@ -64,6 +64,25 @@ export const en: SiteContent = {
     kicker: '03 · Work',
     labels: { problem: 'The problem', value: 'Why it’s valuable', live: 'Live dashboard', repo: 'Source code' },
     items: [
+      {
+        title: 'ENEM Explorer',
+        status: 'Live · 23,023 schools',
+        tagline: 'How every school in Brazil did on ENEM 2024, and which skills students miss the most.',
+        description:
+          'A data pipeline that turns INEP’s raw ENEM microdata (4.3 million results, 2 GB of messy CSVs) into clean, tested tables with dbt, an open dataset and a public explorer. Search any school and see its scores next to its city, its state and similar schools, plus the skills where it falls behind. Built from about 210 million answer checks.',
+        problem:
+          'ENEM data is public but practically unusable: gigabytes of coded CSVs, answers stored as 45-letter strings, and a certificate error just to download it. So parents, schools and tutors make decisions without it, and only researchers and big education companies benefit.',
+        value: [
+          'Parents can see how a school really performs next to similar schools nearby.',
+          'Schools and tutors see exactly which skills students miss most, so they know what to teach first.',
+          'Journalists, researchers and city education departments get clean comparisons by city, state and school type, with no pipeline to build.',
+          'Privacy by design: only averages of groups of 10+ students are published, enforced by an automated test.',
+        ],
+        tags: ['Python', 'dbt', 'DuckDB', 'SQL', 'Parquet', 'GitHub Actions'],
+        liveUrl: 'https://odavicoelho.github.io/enem-explorer/',
+        liveLabel: 'Open the explorer',
+        repoUrl: 'https://github.com/odavicoelho/enem-explorer',
+      },
       {
         title: 'Watchtower',
         status: 'Live · runs every day',
@@ -85,7 +104,7 @@ export const en: SiteContent = {
     ],
     building: {
       title: 'More in progress',
-      text: 'Next up: a data pipeline on Brazilian public data and an AI document assistant. Each one ships with its source code and an architecture write-up.',
+      text: 'Next up: an AI document assistant that answers questions about PDFs and cites the exact page. It ships with its source code and an architecture write-up.',
       cta: 'Follow on GitHub',
     },
     experienceTitle: 'Background',

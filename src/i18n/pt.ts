@@ -56,7 +56,7 @@ export const pt: SiteContent = {
     groups: [
       { name: 'Linguagens', items: ['Python', 'SQL', 'TypeScript', 'JavaScript', 'C'] },
       { name: 'Back-end & Web', items: ['FastAPI', 'Node.js', 'REST', 'React', 'Astro'] },
-      { name: 'Dados & IA', items: ['PostgreSQL', 'pandas', 'DuckDB', 'Pipelines ETL', 'APIs de LLM', 'RAG'] },
+      { name: 'Dados & IA', items: ['PostgreSQL', 'DuckDB', 'dbt', 'pandas', 'Pipelines ETL', 'APIs de LLM', 'RAG'] },
       { name: 'Ferramentas', items: ['Git', 'Docker', 'Linux', 'CI/CD', 'Vercel'] },
     ],
   },
@@ -65,6 +65,25 @@ export const pt: SiteContent = {
     kicker: '03 · Trabalho',
     labels: { problem: 'O problema', value: 'Por que tem valor', live: 'Dashboard ao vivo', repo: 'Código-fonte' },
     items: [
+      {
+        title: 'ENEM Explorer',
+        status: 'No ar · 23.023 escolas',
+        tagline: 'Como cada escola do Brasil foi no ENEM 2024, e quais habilidades os alunos mais erram.',
+        description:
+          'Um pipeline de dados que transforma os microdados brutos do ENEM (4,3 milhões de resultados, 2 GB de CSVs bagunçados) em tabelas limpas e testadas com dbt, um dataset aberto e um explorador público. Busque qualquer escola e veja as notas dela ao lado da cidade, do estado e de escolas parecidas, além das habilidades em que ela fica para trás. Construído a partir de cerca de 210 milhões de respostas conferidas.',
+        problem:
+          'Os dados do ENEM são públicos, mas na prática inutilizáveis: gigabytes de CSVs codificados, respostas guardadas como textos de 45 letras e até um erro de certificado só para baixar. Então pais, escolas e professores decidem sem eles, e só pesquisadores e grandes empresas de educação aproveitam.',
+        value: [
+          'Pais conseguem ver como uma escola realmente se sai ao lado de escolas parecidas da região.',
+          'Escolas e professores veem exatamente quais habilidades os alunos mais erram, e sabem o que ensinar primeiro.',
+          'Jornalistas, pesquisadores e secretarias de educação recebem comparações prontas por cidade, estado e tipo de escola, sem montar pipeline nenhum.',
+          'Privacidade desde o início: só são publicadas médias de grupos com 10+ alunos, garantido por um teste automático.',
+        ],
+        tags: ['Python', 'dbt', 'DuckDB', 'SQL', 'Parquet', 'GitHub Actions'],
+        liveUrl: 'https://odavicoelho.github.io/enem-explorer/',
+        liveLabel: 'Abrir o explorador',
+        repoUrl: 'https://github.com/odavicoelho/enem-explorer',
+      },
       {
         title: 'Watchtower',
         status: 'No ar · roda todo dia',
@@ -86,7 +105,7 @@ export const pt: SiteContent = {
     ],
     building: {
       title: 'Mais em andamento',
-      text: 'Próximos: um pipeline de dados públicos brasileiros e um assistente de documentos com IA. Cada um é publicado com o código-fonte e uma explicação da arquitetura.',
+      text: 'Próximo: um assistente de documentos com IA que responde perguntas sobre PDFs e cita a página exata. Publicado com o código-fonte e uma explicação da arquitetura.',
       cta: 'Acompanhar no GitHub',
     },
     experienceTitle: 'Trajetória',
