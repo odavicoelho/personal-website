@@ -11,9 +11,16 @@ export interface Pillar {
 
 export interface Project {
   title: string;
+  // short status shown as a pill, e.g. "Live · runs daily"
+  status?: string;
+  tagline: string;
   description: string;
+  // the problem it solves, and why that's valuable to a company or a person
+  problem: string;
+  value: string[];
   tags: string[];
-  url?: string;
+  liveUrl?: string;
+  repoUrl?: string;
 }
 
 export interface Plan {
@@ -68,7 +75,8 @@ export interface SiteContent {
     title: string;
     kicker: string;
     items: Project[];
-    linkLabel: string;
+    labels: { problem: string; value: string; live: string; repo: string };
+    // shown alone while there are no projects, and as a note below them afterwards
     building: { title: string; text: string; cta: string };
     experienceTitle: string;
     experience: Job[];

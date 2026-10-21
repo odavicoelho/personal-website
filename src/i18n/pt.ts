@@ -63,11 +63,30 @@ export const pt: SiteContent = {
   projects: {
     title: 'Projetos',
     kicker: '03 · Trabalho',
-    linkLabel: 'Ver projeto',
-    items: [],
+    labels: { problem: 'O problema', value: 'Por que tem valor', live: 'Dashboard ao vivo', repo: 'Código-fonte' },
+    items: [
+      {
+        title: 'Watchtower',
+        status: 'No ar · roda todo dia',
+        tagline: 'Um pipeline de monitoramento que acompanha sites e APIs, guarda o histórico e avisa quando algo muda.',
+        description:
+          'Todo dia ele coleta as cotações do Banco Central, os preços de criptomoedas da Kraken e um catálogo de 200 livros. Guarda todo o histórico em SQLite, compara hoje com ontem e abre um alerta quando uma regra dispara. Roda sozinho no GitHub Actions e publica um dashboard ao vivo, sem custo.',
+        problem:
+          'Informações importantes, como preços da concorrência, estoque de fornecedores e câmbio, ficam em sites que ninguém tem tempo de checar todo dia. Checar na mão é lento e coisas passam batido. Não checar é descobrir tarde demais. E como ninguém anota, não existe histórico para enxergar uma tendência.',
+        value: [
+          'Ninguém mais precisa checar na mão: roda todo dia e não esquece. 30 minutos por dia de checagem manual são cerca de 11 horas por mês de volta.',
+          'Você fica sabendo da mudança no mesmo dia: uma queda de preço, um item de volta ao estoque, o dólar passando da sua cotação.',
+          'Ele constrói um histórico que a maioria dos sites não mostra, para enxergar tendências e padrões depois.',
+          'Praticamente de graça para rodar: sem servidor, sem assinatura.',
+        ],
+        tags: ['Python', 'Web scraping', 'httpx', 'pydantic', 'SQLite', 'GitHub Actions'],
+        liveUrl: 'https://odavicoelho.github.io/watchtower/',
+        repoUrl: 'https://github.com/odavicoelho/watchtower',
+      },
+    ],
     building: {
-      title: 'Em construção',
-      text: 'Novos projetos open-source em engenharia de dados, automação e IA estão em andamento. Cada um é publicado com o código-fonte e uma explicação da arquitetura — eles vão aparecer aqui conforme forem lançados.',
+      title: 'Mais em andamento',
+      text: 'Próximos: um pipeline de dados públicos brasileiros e um assistente de documentos com IA. Cada um é publicado com o código-fonte e uma explicação da arquitetura.',
       cta: 'Acompanhar no GitHub',
     },
     experienceTitle: 'Trajetória',

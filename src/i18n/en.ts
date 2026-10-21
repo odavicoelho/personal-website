@@ -62,11 +62,30 @@ export const en: SiteContent = {
   projects: {
     title: 'Projects',
     kicker: '03 · Work',
-    linkLabel: 'View project',
-    items: [],
+    labels: { problem: 'The problem', value: 'Why it’s valuable', live: 'Live dashboard', repo: 'Source code' },
+    items: [
+      {
+        title: 'Watchtower',
+        status: 'Live · runs every day',
+        tagline: 'A monitoring pipeline that watches websites and APIs, keeps their history and alerts on changes.',
+        description:
+          'Every day it collects exchange rates from Banco Central, crypto prices from Kraken and a 200-book store catalogue. It keeps the full history in SQLite, compares today with yesterday and opens an alert when a rule fires. It runs itself on GitHub Actions and publishes a live dashboard, at zero cost.',
+        problem:
+          'Important information like competitor prices, supplier stock and exchange rates lives on websites nobody has time to check every day. Checking by hand is slow and things get missed. Not checking means finding out too late. And since nobody writes it down, there’s no history to spot a trend.',
+        value: [
+          'No more checking by hand: it runs every day and never forgets. 30 minutes a day of manual checks is about 11 hours a month back.',
+          'You hear about a change the day it happens: a price drop, an item back in stock, the dollar crossing your rate.',
+          'It builds a history most sites never show, so you can see trends and patterns later.',
+          'Practically free to run: no server, no subscription.',
+        ],
+        tags: ['Python', 'Web scraping', 'httpx', 'pydantic', 'SQLite', 'GitHub Actions'],
+        liveUrl: 'https://odavicoelho.github.io/watchtower/',
+        repoUrl: 'https://github.com/odavicoelho/watchtower',
+      },
+    ],
     building: {
-      title: 'Currently building',
-      text: 'New open-source projects in data engineering, automation and AI are in progress. Each one ships with its source code and an architecture write-up — they will appear here as they are released.',
+      title: 'More in progress',
+      text: 'Next up: a data pipeline on Brazilian public data and an AI document assistant. Each one ships with its source code and an architecture write-up.',
       cta: 'Follow on GitHub',
     },
     experienceTitle: 'Background',
