@@ -37,7 +37,7 @@ export const aulas: SiteContent = {
   ],
   about: {
     title: 'Sobre mim',
-    kicker: '03 · Sobre',
+    kicker: '04 · Sobre',
     paragraphs: [
       'Dou aulas de Matemática e Física desde 2018. Meu foco é fazer o aluno entender o porquê de cada conteúdo — quando a lógica fica clara, as notas e a confiança vêm junto.',
       'Cada aluno tem um plano de estudos próprio, montado a partir das dificuldades e dos objetivos dele: recuperar uma nota, acompanhar a escola com tranquilidade ou se preparar para o ENEM.',
@@ -111,6 +111,30 @@ export const aulas: SiteContent = {
       'Remarcação com 24h de antecedência; faltas sem aviso contam como aula dada',
     ],
   },
+  testimonials: {
+    title: 'O que dizem os alunos',
+    kicker: '03 · Depoimentos',
+    items: [
+      {
+        name: 'Beatriz',
+        message:
+          'Oiii, passando pra te avisar que eu acabei de pegar a correção da prova e tirei a nota que eu precisava!!! Inclusive caiu um exercício muito parecido com o que você passou de revisão. Muito obrigada!!',
+        role: 'Aluna do Primeiro Ano do Ensino Médio',
+      },
+      {
+        name: 'Larissa',
+        message:
+          'Achei o jeito que você explica muito diferente do que eu vi na escola! Lá é tudo meio aleatório e sem conexão com o que está sendo passado. Com você eu finalmente consegui ter uma noção do que é matemática de fato. Adorei!!',
+        role: 'Aluna do Ensino Fundamental II',
+      },
+      {
+        name: 'Gabriel',
+        message:
+          'Perguntei no meu professor da escola uma definição que você passou na primeira aula e ele não conseguiu explicar no mesmo nível kkkk Acabou que a minha aula principal de matemática está sendo com você e a escola virou só algo que eu preciso fazer pra passar de ano.',
+        role: 'Aluno do Segundo Ano do Ensino Médio em preparação para faculdade',
+      },
+    ],
+  },
   engineering: {
     title: 'Também sou engenheiro de software e de dados',
     kicker: 'Para empresas',
@@ -119,7 +143,7 @@ export const aulas: SiteContent = {
   },
   contact: {
     title: 'Vamos conversar?',
-    kicker: '04 · Contato',
+    kicker: '05 · Contato',
     intro: 'Agende a aula diagnóstica gratuita ou tire suas dúvidas — o caminho mais rápido é o WhatsApp.',
     whatsappMessage: 'Olá! Vi seu site e gostaria de saber mais sobre as aulas particulares.',
     copyEmail: 'Copiar e-mail',

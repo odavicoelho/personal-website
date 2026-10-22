@@ -132,6 +132,7 @@ export const pt: SiteContent = {
   },
   tutoring: null,
   plans: null,
+  testimonials: null,
   engineering: null,
   contact: {
     title: 'Vamos conversar?',

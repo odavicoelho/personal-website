@@ -131,6 +131,7 @@ export const en: SiteContent = {
   },
   tutoring: null,
   plans: null,
+  testimonials: null,
   engineering: null,
   contact: {
     title: "Let's talk",

@@ -110,6 +110,12 @@ export interface SiteContent {
     extras: string[];
   };
   // short note linking to the engineering page; null hides it
+  // student messages shown after the plans; null hides the section
+  testimonials: null | {
+    title: string;
+    kicker: string;
+    items: { name: string; message: string; role: string }[];
+  };
   engineering: null | {
     title: string;
     kicker: string;

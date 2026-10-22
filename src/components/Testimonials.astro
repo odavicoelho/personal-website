@@ -1,0 +1,39 @@
+---
+import SectionHeader from './SectionHeader.astro';
+import type { PageId } from '../i18n/types';
+import { getContent } from '../i18n/utils';
+
+interface Props {
+  page: PageId;
+}
+
+const { page } = Astro.props;
+const t = getContent(page).testimonials;
+---
+
+{
+  t && (
+    <section id="testimonials" class="relative isolate overflow-hidden border-y border-accent/20 py-24 sm:py-28">
+      <div class="absolute inset-0 -z-10 bg-gradient-to-b from-accent-strong/[0.14] via-accent/[0.07] to-transparent" aria-hidden="true" />
+      <div class="glow-orb absolute -top-48 left-1/2 -z-10 size-[34rem] -translate-x-1/2 rounded-full opacity-70" aria-hidden="true" />
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <SectionHeader kicker={t.kicker} title={t.title} />
+
+        <div class="grid gap-5 md:grid-cols-3">
+          {t.items.map((item, i) => (
+            <figure
+              data-reveal
+              style={`--delay: ${i * 90}ms`}
+              class="relative flex flex-col rounded-2xl border border-accent/30 bg-bg/70 p-6 shadow-[0_0_40px_rgb(139_92_246/0.15)] backdrop-blur sm:p-7"
+            >
+              <span class="font-display text-6xl leading-none text-accent/40 select-none" aria-hidden="true">“</span>
+              <figcaption class="-mt-3 font-display text-lg font-semibold text-white">{item.name}</figcaption>
+              <blockquote class="mt-3 flex-1 leading-relaxed text-fg/90">{item.message}</blockquote>
+              <p class="mt-5 border-t border-line pt-4 text-sm text-accent-soft">— {item.role}</p>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
