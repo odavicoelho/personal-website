@@ -68,10 +68,10 @@ export const pt: SiteContent = {
     items: [
       {
         title: 'Brasil Urna por Urna',
-        status: 'No ar · 92.840 locais de votação',
+        status: 'No ar · 92.851 locais de votação',
         tagline: 'A eleição presidencial de 2026, local de votação por local de votação.',
         description:
-          'Um pipeline que soma meio milhão de seções eleitorais em 92.840 locais de votação, confere cada total com a totalização oficial (diferença zero, ou nada é publicado) e liga cada local ao perfil do entorno no Censo 2022. O resultado é um mapa feito para o celular, que abre em cerca de dois segundos no 4G, seis descobertas calculadas direto dos dados e uma base aberta.',
+          'Um pipeline que soma meio milhão de seções eleitorais em 92.851 locais de votação, confere cada total com a totalização oficial (diferença zero, ou nada é publicado) e liga cada local ao perfil do entorno no Censo 2022. O resultado é um mapa feito para o celular, que abre em cerca de dois segundos no 4G, seis descobertas calculadas direto dos dados e uma base aberta.',
         problem:
           'O resultado oficial para no município, e um município esconde muita coisa: uma cidade que deu 55% a 45% normalmente é uma colcha de bairros que deram 80% para cada lado. Os dados por local são públicos, mas vêm em arquivos enormes, com locais renumerados e milhares de coordenadas erradas, então na prática só quem tem equipe e tempo consegue usar.',
         value: [

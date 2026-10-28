@@ -3,10 +3,10 @@ import type { Project, SiteContent } from './types';
 // Also shown on the broker page.
 export const urnaPorUrna: Project = {
   title: 'Brasil Urna por Urna',
-  status: 'Live · 92,840 polling places',
+  status: 'Live · 92,851 polling places',
   tagline: "Brazil's 2026 presidential election, polling place by polling place.",
   description:
-    'A pipeline that adds up half a million ballot sections into 92,840 polling places, checks every total against the official count (zero difference, or nothing gets published) and links each place to the 2022 Census profile of its neighborhood. The result is a mobile-first map that loads in about two seconds on 4G, six findings computed straight from the data and an open dataset. The site is in Portuguese.',
+    'A pipeline that adds up half a million ballot sections into 92,851 polling places, checks every total against the official count (zero difference, or nothing gets published) and links each place to the 2022 Census profile of its neighborhood. The result is a mobile-first map that loads in about two seconds on 4G, six findings computed straight from the data and an open dataset. The site is in Portuguese.',
   problem:
     'Official results stop at the municipality, and a municipality hides a lot: a city that went 55–45 is usually a patchwork of neighborhoods going 80–20 each way. The polling-place data is public, but it comes in huge files with renumbered places and thousands of wrong coordinates, so in practice only teams with time and money use it.',
   value: [
