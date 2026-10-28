@@ -52,7 +52,7 @@ const jsonLd = {
     <meta property="og:description" content={t.meta.description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:locale" content={page === 'en' ? 'en_US' : 'pt_BR'} />
+    <meta property="og:locale" content={htmlLang(page) === 'en' ? 'en_US' : 'pt_BR'} />
     <meta name="twitter:card" content="summary_large_image" />
 
     <script is:inline>

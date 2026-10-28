@@ -14,6 +14,7 @@ export const pt: SiteContent = {
   ],
   langSwitch: { label: 'EN', aria: 'View in English' },
   tutoringLink: { label: 'Aulas', aria: 'Aulas de Matemática e Física' },
+  brokerLink: { label: 'Broker', aria: 'Information broker: pesquisa, bases de dados e monitoramento (em inglês)' },
   hero: {
     eyebrow: 'Autônomo · Disponível para projetos',
     greeting: 'Olá, eu sou',
@@ -65,6 +66,25 @@ export const pt: SiteContent = {
     kicker: '03 · Trabalho',
     labels: { problem: 'O problema', value: 'Por que tem valor', live: 'Dashboard ao vivo', repo: 'Código-fonte' },
     items: [
+      {
+        title: 'Brasil Urna por Urna',
+        status: 'No ar · 92.840 locais de votação',
+        tagline: 'A eleição presidencial de 2026, local de votação por local de votação.',
+        description:
+          'Um pipeline que soma meio milhão de seções eleitorais em 92.840 locais de votação, confere cada total com a totalização oficial (diferença zero, ou nada é publicado) e liga cada local ao perfil do entorno no Censo 2022. O resultado é um mapa feito para o celular, que abre em cerca de dois segundos no 4G, seis descobertas calculadas direto dos dados e uma base aberta.',
+        problem:
+          'O resultado oficial para no município, e um município esconde muita coisa: uma cidade que deu 55% a 45% normalmente é uma colcha de bairros que deram 80% para cada lado. Os dados por local são públicos, mas vêm em arquivos enormes, com locais renumerados e milhares de coordenadas erradas, então na prática só quem tem equipe e tempo consegue usar.',
+        value: [
+          'Qualquer pessoa encontra a escola onde vota e vê como ela votou, comparada com a cidade e com o Brasil.',
+          'Jornalistas e pesquisadores têm uma base limpa e conferida, local por local, sem montar pipeline.',
+          'Campanhas e consultorias veem redutos, disputas apertadas e onde o comparecimento é baixo, que é o que importa para planejar 2028.',
+          'Todo número bate com a totalização oficial, e cada arquivo de origem fica registrado com a data de publicação e o SHA-256.',
+        ],
+        tags: ['Python', 'DuckDB', 'Geoespacial', 'Censo 2022', 'MapLibre', 'TypeScript', 'Cloudflare Pages'],
+        liveUrl: 'https://brasil-urna-por-urna.pages.dev/',
+        liveLabel: 'Abrir o mapa',
+        repoUrl: 'https://github.com/odavicoelho/brasil-urna-por-urna',
+      },
       {
         title: 'ENEM Explorer',
         status: 'No ar · 23.023 escolas',

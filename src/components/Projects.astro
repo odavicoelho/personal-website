@@ -85,6 +85,7 @@ const t = getContent(page).projects;
     </a>
   </div>
 
+  {t.experience.length > 0 && (<>
   <h3 data-reveal class="mt-20 mb-8 font-display text-2xl font-semibold text-white">{t.experienceTitle}</h3>
   <ol class="relative space-y-8 border-l border-line pl-6 sm:pl-8">
     {
@@ -101,6 +102,7 @@ const t = getContent(page).projects;
       ))
     }
   </ol>
+  </>)}
 </section>
   )
 }

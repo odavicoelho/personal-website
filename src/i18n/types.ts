@@ -1,7 +1,8 @@
-// en and pt are the engineering page in each language; aulas is the tutoring page (Portuguese only)
-export type PageId = 'en' | 'pt' | 'aulas';
+// en and pt are the engineering page in each language; aulas is the tutoring page (Portuguese only);
+// broker is the information broker page (English, international clients first)
+export type PageId = 'en' | 'pt' | 'aulas' | 'broker';
 
-export type PillarIcon = 'code' | 'data' | 'teach';
+export type PillarIcon = 'code' | 'data' | 'teach' | 'search' | 'bell';
 
 export interface Pillar {
   icon: PillarIcon;
@@ -48,6 +49,8 @@ export interface SiteContent {
   langSwitch: { label: string; aria: string };
   // nav button linking to the tutoring page; omit to hide it
   tutoringLink?: { label: string; aria: string };
+  // nav button linking to the information broker page; omit to hide it
+  brokerLink?: { label: string; aria: string };
   hero: {
     eyebrow: string;
     greeting: string;
