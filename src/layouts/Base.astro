@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css';
 import type { PageId } from '../i18n/types';
-import { getContent, htmlLang, isEngineering, pathFor } from '../i18n/utils';
+import { getContent, hasTranslation, htmlLang, pathFor, switchTarget } from '../i18n/utils';
 import { site } from '../config/site';
 
 interface Props {
@@ -13,12 +13,13 @@ const t = getContent(page);
 
 const canonical = new URL(pathFor(page), Astro.site);
 const ogImage = new URL(`/og-${page}.png`, Astro.site);
-// the two engineering pages are translations of each other
-const alternates = isEngineering(page)
+// pages with an English and a Portuguese version point to each other
+const english = htmlLang(page) === 'en' ? page : switchTarget(page);
+const alternates = hasTranslation(page)
   ? [
-      { hreflang: 'en', href: new URL(pathFor('en'), Astro.site) },
-      { hreflang: 'pt-BR', href: new URL(pathFor('pt'), Astro.site) },
-      { hreflang: 'x-default', href: new URL(pathFor('en'), Astro.site) },
+      { hreflang: 'en', href: new URL(pathFor(english), Astro.site) },
+      { hreflang: 'pt-BR', href: new URL(pathFor(switchTarget(english)), Astro.site) },
+      { hreflang: 'x-default', href: new URL(pathFor(english), Astro.site) },
     ]
   : [];
 

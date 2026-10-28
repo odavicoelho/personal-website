@@ -1,7 +1,7 @@
 ---
 import Icon from './Icon.astro';
 import type { PageId } from '../i18n/types';
-import { getContent, htmlLang, isEngineering, pathFor, switchTarget } from '../i18n/utils';
+import { brokerFor, engineeringFor, getContent, hasTranslation, htmlLang, langCode, pathFor, switchTarget } from '../i18n/utils';
 import { site } from '../config/site';
 
 interface Props {
@@ -48,9 +48,21 @@ const switchHref = pathFor(target);
         )
       }
       {
+        t.engineeringLink && (
+          <a
+            href={pathFor(engineeringFor(page))}
+            aria-label={t.engineeringLink.aria}
+            class="inline-flex h-10 items-center gap-1.5 rounded-lg border border-line bg-white/[0.03] px-3 font-mono text-xs text-fg transition-colors hover:border-accent/50 hover:text-accent"
+          >
+            <Icon name="code" class="size-4 text-accent" />
+            <span class="hidden sm:inline">{t.engineeringLink.label}</span>
+          </a>
+        )
+      }
+      {
         t.brokerLink && (
           <a
-            href={pathFor('broker')}
+            href={pathFor(brokerFor(page))}
             aria-label={t.brokerLink.aria}
             class="inline-flex h-10 items-center gap-1.5 rounded-lg border border-line bg-white/[0.03] px-3 font-mono text-xs text-fg transition-colors hover:border-accent/50 hover:text-accent"
           >
@@ -61,16 +73,16 @@ const switchHref = pathFor(target);
       }
       <a
         href={switchHref}
-        data-lang-switch={isEngineering(page) ? '' : undefined}
+        data-lang-switch={hasTranslation(page) ? '' : undefined}
         hreflang={htmlLang(target)}
         aria-label={t.langSwitch.aria}
         class="inline-flex h-10 items-center gap-1.5 rounded-lg border border-line bg-white/[0.03] px-3 font-mono text-xs text-fg transition-colors hover:border-accent/50 hover:text-accent"
       >
         {
-          isEngineering(page) ? (
+          hasTranslation(page) ? (
             <>
               <Icon name="globe" class="size-4" />
-              <span class="text-accent">{page.toUpperCase()}</span>
+              <span class="text-accent">{langCode(page)}</span>
               <span class="text-muted">/</span>
               <span>{t.langSwitch.label}</span>
             </>
@@ -117,7 +129,7 @@ const switchHref = pathFor(target);
     </ul>
     {
       t.brokerLink && (
-        <a href={pathFor('broker')} class="mt-10 inline-flex items-center gap-3 font-mono text-sm text-accent">
+        <a href={pathFor(brokerFor(page))} class="mt-10 inline-flex items-center gap-3 font-mono text-sm text-accent">
           <Icon name="search" class="size-5" />
           {t.brokerLink.aria}
           <Icon name="arrow" class="size-4" />

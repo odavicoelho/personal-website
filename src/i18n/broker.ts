@@ -1,7 +1,7 @@
 import type { SiteContent } from './types';
 import { en, urnaPorUrna } from './en';
 
-// The information broker page. English only: international clients come first.
+// The information broker page in English (/broker/). The Portuguese version is brokerPt.ts.
 // Voice: full confidence about what Davi can do; never invented clients, jobs, reviews or numbers.
 const [enem, watchtower] = en.projects!.items.filter((p) => p !== urnaPorUrna);
 
@@ -17,7 +17,8 @@ export const broker: SiteContent = {
     { label: 'Proof', id: 'projects' },
     { label: 'Contact', id: 'contact' },
   ],
-  langSwitch: { label: 'Engineering', aria: 'Software and data engineering' },
+  langSwitch: { label: 'PT', aria: 'Ver em português' },
+  engineeringLink: { label: 'Engineering', aria: 'Software and data engineering' },
   hero: {
     eyebrow: 'Information Broker · Taking requests',
     greeting: "I'm",

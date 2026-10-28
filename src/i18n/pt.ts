@@ -14,7 +14,7 @@ export const pt: SiteContent = {
   ],
   langSwitch: { label: 'EN', aria: 'View in English' },
   tutoringLink: { label: 'Aulas', aria: 'Aulas de Matemática e Física' },
-  brokerLink: { label: 'Broker', aria: 'Information broker: pesquisa, bases de dados e monitoramento (em inglês)' },
+  brokerLink: { label: 'Broker', aria: 'Information broker: pesquisa, bases de dados e monitoramento' },
   hero: {
     eyebrow: 'Autônomo · Disponível para projetos',
     greeting: 'Olá, eu sou',
