@@ -34,13 +34,13 @@ const switchHref = pathFor(target);
       }
     </div>
 
-    <div class="flex items-center gap-1.5 sm:gap-2">
+    <div class="flex items-center gap-1 sm:gap-2">
       {
         t.tutoringLink && (
           <a
             href={pathFor('aulas')}
             aria-label={t.tutoringLink.aria}
-            class="inline-flex h-10 items-center gap-1.5 rounded-lg border border-line bg-white/[0.03] px-3 font-mono text-xs text-fg transition-colors hover:border-accent/50 hover:text-accent"
+            class="inline-flex h-10 items-center gap-1 rounded-lg border border-line bg-white/[0.03] px-2 font-mono text-xs text-fg transition-colors hover:border-accent/50 hover:text-accent sm:gap-1.5 sm:px-3"
           >
             <Icon name="teach" class="size-4 text-accent" />
             <span>{t.tutoringLink.label}</span>
@@ -52,7 +52,7 @@ const switchHref = pathFor(target);
           <a
             href={pathFor(engineeringFor(page))}
             aria-label={t.engineeringLink.aria}
-            class="inline-flex h-10 items-center gap-1.5 rounded-lg border border-line bg-white/[0.03] px-3 font-mono text-xs text-fg transition-colors hover:border-accent/50 hover:text-accent"
+            class="inline-flex h-10 items-center gap-1 rounded-lg border border-line bg-white/[0.03] px-2 font-mono text-xs text-fg transition-colors hover:border-accent/50 hover:text-accent sm:gap-1.5 sm:px-3"
           >
             <Icon name="code" class="size-4 text-accent" />
             <span>{t.engineeringLink.label}</span>
@@ -64,7 +64,7 @@ const switchHref = pathFor(target);
           <a
             href={pathFor(brokerFor(page))}
             aria-label={t.brokerLink.aria}
-            class="inline-flex h-10 items-center gap-1.5 rounded-lg border border-line bg-white/[0.03] px-3 font-mono text-xs text-fg transition-colors hover:border-accent/50 hover:text-accent"
+            class="inline-flex h-10 items-center gap-1 rounded-lg border border-line bg-white/[0.03] px-2 font-mono text-xs text-fg transition-colors hover:border-accent/50 hover:text-accent sm:gap-1.5 sm:px-3"
           >
             <Icon name="search" class="size-4 text-accent" />
             <span>{t.brokerLink.label}</span>
@@ -76,7 +76,7 @@ const switchHref = pathFor(target);
         data-lang-switch={hasTranslation(page) ? '' : undefined}
         hreflang={htmlLang(target)}
         aria-label={t.langSwitch.aria}
-        class="inline-flex h-10 items-center gap-1.5 rounded-lg border border-line bg-white/[0.03] px-3 font-mono text-xs text-fg transition-colors hover:border-accent/50 hover:text-accent"
+        class="inline-flex h-10 items-center gap-1 rounded-lg border border-line bg-white/[0.03] px-2 font-mono text-xs text-fg transition-colors hover:border-accent/50 hover:text-accent sm:gap-1.5 sm:px-3"
       >
         {
           hasTranslation(page) ? (

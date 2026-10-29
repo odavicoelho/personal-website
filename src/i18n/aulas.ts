@@ -13,6 +13,7 @@ export const aulas: SiteContent = {
     { label: 'Contato', id: 'contact' },
   ],
   langSwitch: { label: 'Engenharia', aria: 'Engenharia de Software e Dados' },
+  brokerLink: { label: 'Broker', aria: 'Information broker: pesquisa, bases de dados e monitoramento' },
   hero: {
     eyebrow: 'Vagas abertas · Nova Friburgo e online',
     greeting: 'Olá, eu sou',

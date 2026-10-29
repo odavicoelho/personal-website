@@ -16,6 +16,7 @@ export const brokerPt: SiteContent = {
     { label: 'Contato', id: 'contact' },
   ],
   langSwitch: { label: 'EN', aria: 'View in English' },
+  tutoringLink: { label: 'Aulas', aria: 'Aulas de Matemática e Física' },
   engineeringLink: { label: 'Engenharia', aria: 'Engenharia de Software e Dados' },
   hero: {
     eyebrow: 'Information Broker · Aceitando pedidos',
