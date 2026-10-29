@@ -57,7 +57,7 @@ export const pt: SiteContent = {
     groups: [
       { name: 'Linguagens', items: ['Python', 'SQL', 'TypeScript', 'JavaScript', 'C'] },
       { name: 'Back-end & Web', items: ['FastAPI', 'Node.js', 'REST', 'React', 'Astro'] },
-      { name: 'Dados & IA', items: ['PostgreSQL', 'DuckDB', 'dbt', 'pandas', 'Pipelines ETL', 'APIs de LLM', 'RAG'] },
+      { name: 'Dados & IA', items: ['PostgreSQL', 'DuckDB', 'dbt', 'pandas', 'Pipelines ETL'] },
       { name: 'Ferramentas', items: ['Git', 'Docker', 'Linux', 'CI/CD', 'Vercel'] },
     ],
   },

@@ -77,7 +77,7 @@ export const en: SiteContent = {
     groups: [
       { name: 'Languages', items: ['Python', 'SQL', 'TypeScript', 'JavaScript', 'C'] },
       { name: 'Back-end & Web', items: ['FastAPI', 'Node.js', 'REST', 'React', 'Astro'] },
-      { name: 'Data & AI', items: ['PostgreSQL', 'DuckDB', 'dbt', 'pandas', 'ETL pipelines', 'LLM APIs', 'RAG'] },
+      { name: 'Data & AI', items: ['PostgreSQL', 'DuckDB', 'dbt', 'pandas', 'ETL pipelines'] },
       { name: 'Tooling', items: ['Git', 'Docker', 'Linux', 'CI/CD', 'Vercel'] },
     ],
   },
