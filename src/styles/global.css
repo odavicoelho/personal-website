@@ -112,6 +112,12 @@
     background-size: 56px 56px;
     mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 40%, transparent 100%);
   }
+  /* Glow behind the profile photo. A gradient instead of a blur filter: large blurred layers
+     flicker in Chrome while the page scrolls or the photo fades in. */
+  .photo-glow {
+    background: radial-gradient(closest-side, rgb(167 139 250 / 0.26) 55%, rgb(167 139 250 / 0.1) 78%, transparent);
+    pointer-events: none;
+  }
   .glow-orb {
     background: radial-gradient(circle, rgb(139 92 246 / 0.45), transparent 65%);
     filter: blur(40px);
