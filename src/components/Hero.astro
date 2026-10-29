@@ -58,22 +58,26 @@ const t = getContent(page);
         </a>
       </div>
 
-      <div data-reveal style="--delay: 480ms" class="mt-10 flex items-center gap-2">
-        <a href={site.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="grid size-11 place-items-center rounded-xl text-muted transition-colors hover:bg-white/5 hover:text-accent">
+      <div data-reveal style="--delay: 480ms" class="mt-10 flex flex-wrap items-center gap-1">
+        <a href={site.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="inline-flex h-11 items-center gap-2 rounded-xl px-3 font-mono text-xs text-muted transition-colors hover:bg-white/5 hover:text-accent">
           <Icon name="linkedin" />
+          <span>LinkedIn</span>
         </a>
-        <a href={site.x} target="_blank" rel="noopener noreferrer" aria-label="X" class="grid size-11 place-items-center rounded-xl text-muted transition-colors hover:bg-white/5 hover:text-accent">
+        <a href={site.x} target="_blank" rel="noopener noreferrer" aria-label="X" class="inline-flex h-11 items-center gap-2 rounded-xl px-3 font-mono text-xs text-muted transition-colors hover:bg-white/5 hover:text-accent">
           <Icon name="x" />
+          <span>X</span>
         </a>
         {
           site.github && (
-            <a href={site.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="grid size-11 place-items-center rounded-xl text-muted transition-colors hover:bg-white/5 hover:text-accent">
+            <a href={site.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="inline-flex h-11 items-center gap-2 rounded-xl px-3 font-mono text-xs text-muted transition-colors hover:bg-white/5 hover:text-accent">
               <Icon name="github" />
+          <span>GitHub</span>
             </a>
           )
         }
-        <a href={`mailto:${site.email}`} aria-label="Email" class="grid size-11 place-items-center rounded-xl text-muted transition-colors hover:bg-white/5 hover:text-accent">
+        <a href={`mailto:${site.email}`} aria-label="Email" class="inline-flex h-11 items-center gap-2 rounded-xl px-3 font-mono text-xs text-muted transition-colors hover:bg-white/5 hover:text-accent">
           <Icon name="mail" />
+          <span>Email</span>
         </a>
       </div>
     </div>

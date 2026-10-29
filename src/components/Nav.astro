@@ -34,7 +34,7 @@ const switchHref = pathFor(target);
       }
     </div>
 
-    <div class="flex items-center gap-2">
+    <div class="flex items-center gap-1.5 sm:gap-2">
       {
         t.tutoringLink && (
           <a
@@ -55,7 +55,7 @@ const switchHref = pathFor(target);
             class="inline-flex h-10 items-center gap-1.5 rounded-lg border border-line bg-white/[0.03] px-3 font-mono text-xs text-fg transition-colors hover:border-accent/50 hover:text-accent"
           >
             <Icon name="code" class="size-4 text-accent" />
-            <span class="hidden sm:inline">{t.engineeringLink.label}</span>
+            <span>{t.engineeringLink.label}</span>
           </a>
         )
       }
@@ -67,7 +67,7 @@ const switchHref = pathFor(target);
             class="inline-flex h-10 items-center gap-1.5 rounded-lg border border-line bg-white/[0.03] px-3 font-mono text-xs text-fg transition-colors hover:border-accent/50 hover:text-accent"
           >
             <Icon name="search" class="size-4 text-accent" />
-            <span class="hidden sm:inline">{t.brokerLink.label}</span>
+            <span>{t.brokerLink.label}</span>
           </a>
         )
       }
@@ -81,7 +81,7 @@ const switchHref = pathFor(target);
         {
           hasTranslation(page) ? (
             <>
-              <Icon name="globe" class="size-4" />
+              <Icon name="globe" class="hidden size-4 sm:block" />
               <span class="text-accent">{langCode(page)}</span>
               <span class="text-muted">/</span>
               <span>{t.langSwitch.label}</span>
